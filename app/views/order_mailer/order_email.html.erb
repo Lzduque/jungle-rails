@@ -30,7 +30,7 @@
         TOTAL:
       </th>
       <th>
-        <%= @order.total_cents / 100.0 %>
+        <%= humanized_money_with_symbol @order.total_cents / 100.0 %>
       </th>
     </tr>
   </tfoot>

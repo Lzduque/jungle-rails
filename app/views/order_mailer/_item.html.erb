@@ -2,12 +2,12 @@
   <td>
     <h4><%= product %></h4>
   <td>
-    <%= unit_price  / 100.0 %>
+    <%= humanized_money_with_symbol unit_price  / 100.0 %>
   </td>
   <td>
     <p><%= quantity %></p>
   </td>
   <td>
-    <%= unit_price * quantity  / 100.0 %>
+    <%= humanized_money_with_symbol unit_price * quantity  / 100.0 %>
   </td>
 </tr>
