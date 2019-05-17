@@ -133,4 +133,48 @@ cat3.products.create!({
 })
 
 
+## USERS
+
+puts "Finding Users ..."
+
+user1 = User.find_or_create_by!({
+  firstname: 'John',
+  lastname: 'Doe',
+  email: 'test@abc.com',
+  password_digest: 'test',
+})
+
+
+## RATINGS
+
+puts "Finding Products ..."
+
+prod12 = Product.find_by! id: 12
+prod11 = Product.find_by! id: 11
+
+puts "Re-creating Ratings ..."
+
+Rating.destroy_all
+
+prod12.ratings.create!({
+  product_id: 12,
+  user_id: 1,
+  description: 'This is a awesome bookshelf!',
+  rating: 5
+})
+
+prod12.ratings.create!({
+  product_id: 12,
+  user_id: 1,
+  description: 'Dont like it! The books always fall out!',
+  rating: 2
+})
+
+prod11.ratings.create!({
+  product_id: 11,
+  user_id: 1,
+  description: 'Very unconfortable!',
+  rating: 2
+})
+
 puts "DONE!"
