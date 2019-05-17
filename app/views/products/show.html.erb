@@ -25,11 +25,25 @@
         </dl>
       </div>
     </div>
+
     <hr>
+
     <div class="col-sm-12">
     <h3>Ratings</h3>
+    <br>
+
+    <%= form_for [@product, @rating], url: `/products/#{@product.id}/ratings` do |form| %>
+      <h4>New Rating</h4>
+      <div class="field">
+      <%= form.text_area :description %>
+      <%= form.select :rating, rating: [ 1, 2, 3, 4, 5 ] %>
+      </div>
+      <div class="actions">
+      <%= form.submit "Create" %>
+    <% end %>
+
     <dl class="dl-horizontal">
-    <% @ratings.each do |rating| %>
+    <% @product.ratings.each do |rating| %>
       <dt>User Name</dt>
       <% user = User.find_by id: rating.user_id %>
       <dd><%= user.firstname + ' ' + user.lastname %></dd>
