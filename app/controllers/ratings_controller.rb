@@ -1,6 +1,6 @@
 class RatingsController < ApplicationController
-  before_action :delete_rating, :only => [:destroy]
-  before_action :new_rating, :only => [:create]
+  before_filter :delete_rating, :only => [:destroy]
+  before_filter :new_rating, :only => [:create]
 
   def create
     @rating.user = current_user
