@@ -8,9 +8,24 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">Jungle</a>
+
+      <% if current_user %>
+        <h4 class="navbar-text" >Signed in as <%= current_user.firstname %> </h4>
+      <% end %>
+
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+        <% if current_user %>
+          <li>
+            <%= link_to "Logout", '/logout' %>
+          </li>
+        <% else %>
+          <li>
+          <%= link_to 'Login', '/login' %>
+          <%= link_to 'Signup', '/signup' %>
+          </li>
+        <% end %>
         <li>
           <%= link_to 'Home', :root %>
         </li>
@@ -43,13 +58,9 @@
         <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
-        </li>
-        <% if current_user %>
-        Signed in as <%= current_user.firstname %> | <%= link_to "Logout", '/logout' %>
-        <% else %>
-          <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-        <% end %>
-      </ul>
+
+
+          </ul>
     </div>
   </div>
 </nav>
