@@ -8,7 +8,7 @@ class RatingsController < ApplicationController
     if @rating.save
       redirect_to product_path(params[:product_id])
     else
-      redirect_to product_path(params[:product_id])
+      redirect_to product_path(params[:product_id]) # :back
     end
   end
 

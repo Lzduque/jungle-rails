@@ -45,7 +45,8 @@
     <% end %>
 
     <% if @sorted.size > 0 %>
-      <h3>Ratings for this Product | Average: <%= @average.round(1) %> / 5</h3>
+      <h4>Ratings for this Product | Average: <%= @average.round(1) %> / 5</h4>
+      <br>
       <dl class="dl-horizontal">
       <% @sorted.each do |rating| %>
         <dt>User Name</dt>
@@ -63,12 +64,11 @@
       <% end %>
     </dl>
     <% elsif @sorted.size == 0 && current_user %>
-    <h4>There are no ratings yet for this product. Use the form to write your own!</h4>
+      <h4>There are no ratings yet for this product. Use the form to write your own!</h4>
     <% else %>
-    <h4>There are no ratings yet for this product. Please <a href="/login">login</a> or <a href="/signup">register</a> to write your own!</h4>
+      <h4>Please <a href="/login">login</a> or <a href="/signup">register</a> to write your own!</h4>
     <% end %>
 </div>
-
 
   </article>
 
