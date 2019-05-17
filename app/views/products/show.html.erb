@@ -28,22 +28,25 @@
 
     <hr>
 
+    <% if current_user %>
     <div class="col-sm-12">
     <h3>Ratings</h3>
     <br>
-
+    <h4>New Rating</h4>
     <%= form_for [@product, @rating], url: `/products/#{@product.id}/ratings` do |form| %>
-      <h4>New Rating</h4>
       <div class="field">
-      <%= form.text_area :description %>
       <%= form.select :rating, rating: [ 1, 2, 3, 4, 5 ] %>
+      <%= form.text_area :description %>
       </div>
       <div class="actions">
       <%= form.submit "Create" %>
     <% end %>
+  <% end %>
 
+    <% if @sorted.size > 0 %>
+    <h3 class="review-header">Ratings for this Product (<em>Average Rating: <%= @average %> / 5</em>)</h3>
     <dl class="dl-horizontal">
-    <% @product.ratings.each do |rating| %>
+    <% @sorted.each do |rating| %>
       <dt>User Name</dt>
       <% user = User.find_by id: rating.user_id %>
       <dd><%= user.firstname + ' ' + user.lastname %></dd>
@@ -54,7 +57,12 @@
       <br>
       <% end %>
     </dl>
-  </div>
+    <% elsif @sorted.size == 0 && current_user %>
+    <h4>There are no ratings yet for this product. Use the form to write your own!</h4>
+    <% else %>
+    <h4>There are no ratings yet for this product. Please <a href="/login">login</a> or <a href="/signup">register</a> to write your own!</h4>
+    <% end %>
+</div>
 
 
   </article>
