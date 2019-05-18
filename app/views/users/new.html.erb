@@ -1,17 +1,26 @@
 <h1>Signup!</h1>
 
-<%= form_for :user, url: '/users' do |f| %>
-
-  First Name: <%= f.text_field :firstname %>
-  <br>
-  Last Name: <%= f.text_field :lastname %>
-  <br>
-  Email: <%= f.text_field :email %>
-  <br>
-  Password: <%= f.password_field :password %>
-  <br>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <br>
-  <%= f.submit "Submit" %>
-
-<% end %>
+<section class="users-new">
+  <div class="well form-group col-sm-6 col-sm-offset-1">
+    <%= form_for :user, url: '/users' do |f| %>
+      <div class="form-group">
+      First Name: <%= f.text_field :firstname %>
+      <br>
+      <br>
+      Last Name: <%= f.text_field :lastname %>
+      <br>
+      <br>
+      Email: <%= f.text_field :email %>
+      <br>
+      <br>
+      Password: <%= f.password_field :password %>
+      <br>
+      <br>
+      Password Confirmation: <%= f.password_field :password_confirmation %>
+      <br>
+      <br>
+      <%= f.submit "Submit", class: 'btn btn-primary' %>
+    <% end %>
+    </div>
+  </div>
+</section>
