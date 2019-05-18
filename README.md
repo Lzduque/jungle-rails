@@ -42,5 +42,25 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 ## Screenshots
 
 Home Page
-!['Screenshot of Home Page'](https://github.com/Lzduque/chatty-app/blob/master/docs/first-client-connect.png?raw=true)
+!['Screenshot of Home Page'](https://github.com/Lzduque/jungle-rails/blob/master/docs/homepage.png?raw=true)
 
+Login Page
+!['Screenshot of Login Page'](https://github.com/Lzduque/jungle-rails/blob/master/docs/login.png?raw=true)
+
+Signup Page
+!['Screenshot of Signup Page'](https://github.com/Lzduque/jungle-rails/blob/master/docs/signup.png?raw=true)
+
+Product Detail When Logged in Page
+!['Screenshot of Product Detail When Logged in  Page'](https://github.com/Lzduque/jungle-rails/blob/master/docs/product-detail-when-loggedin.png?raw=true)
+
+Product Comment When Logged in Page
+!['Screenshot of Product Comment When Logged in  Page'](https://github.com/Lzduque/jungle-rails/blob/master/docs/product-comment-when-loggedin.png?raw=true)
+
+Product Comment When Not Logged in Page
+!['Screenshot of Product Detail When Not Logged in Page'](https://github.com/Lzduque/jungle-rails/blob/master/docs/product-comment-not-loggedin.png?raw=true)
+
+Cart Page
+!['Screenshot of Cart Page'](https://github.com/Lzduque/jungle-rails/blob/master/docs/cart.png?raw=true)
+
+Order Page
+!['Screenshot of Order Page'](https://github.com/Lzduque/jungle-rails/blob/master/docs/order.png?raw=true)
