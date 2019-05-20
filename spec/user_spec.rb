@@ -7,8 +7,8 @@ RSpec.describe User, type: :model do
         firstname: 'John',
         lastname: 'Snow',
         email: 'jsnow@got.com',
-        password: 'winter',
-        password_confirmation: 'winter'
+        password: 'winteriscoming',
+        password_confirmation: 'winteriscoming'
       )
     end
     it 'should be created successfully when all fields are present' do
@@ -48,8 +48,8 @@ RSpec.describe User, type: :model do
         firstname: 'Dany',
         lastname: 'Targaryen',
         email: 'jsnow@got.com',
-        password: 'throne',
-        password_confirmation: 'throne'
+        password: 'iwantthethrone',
+        password_confirmation: 'iwantthethrone'
       })
       expect(subject).to_not be_valid
       expect(subject.errors.full_messages).to include("Email has already been taken")
@@ -59,11 +59,17 @@ RSpec.describe User, type: :model do
         firstname: 'Dany',
         lastname: 'Targaryen',
         email: 'JSnow@got.com',
-        password: 'throne',
-        password_confirmation: 'throne'
+        password: 'iwantthethrone',
+        password_confirmation: 'iwantthethrone'
       })
       expect(subject).to_not be_valid
       expect(subject.errors.full_messages).to include("Email has already been taken")
+    end
+    it 'password should have a minimum length of 10 characters' do
+      subject.password = 'snow'
+      subject.password_confirmation = 'snow'
+      expect(subject).to_not be_valid
+      expect(subject.errors.full_messages).to include("Password is too short (minimum is 10 characters)")
     end
   end
 end
