@@ -65,11 +65,38 @@ RSpec.describe User, type: :model do
       expect(subject).to_not be_valid
       expect(subject.errors.full_messages).to include("Email has already been taken")
     end
-    it 'password should have a minimum length of 10 characters' do
+    it 'password should have a minimum length of 8 characters' do
       subject.password = 'snow'
       subject.password_confirmation = 'snow'
       expect(subject).to_not be_valid
-      expect(subject.errors.full_messages).to include("Password is too short (minimum is 10 characters)")
+      expect(subject.errors.full_messages).to include("Password is too short (minimum is 8 characters)")
+    end
+  end
+  describe '.authenticate_with_credentials' do
+    # examples for this class method here
+    subject do
+      user = User.new(
+        firstname: 'John',
+        lastname: 'Snow',
+        email: 'jsnow@got.com',
+        password: 'winteriscoming',
+        password_confirmation: 'winteriscoming'
+      )
+    end
+    it 'should authetificate if there are spaces before and after the email' do
+      subject.save!
+      session = User.authenticate_with_credentials(" jsnow@got.com ","winteriscoming")
+      expect(session).to be_truthy
+    end
+    it 'should authetificate if there are upper case in the email' do
+      subject.save!
+      session = User.authenticate_with_credentials("jSnoW@got.com","winteriscoming")
+      expect(session).to be_truthy
+    end
+    it 'should authetificate if there are spaces before and after the email' do
+      subject.save!
+      session = User.authenticate_with_credentials("jsnow@got.com","winteriscomi")
+      expect(session).to be_falsey
     end
   end
 end

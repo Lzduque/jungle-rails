@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    byebug
     user = User.new(user_params)
 
     if User.find_by(email: user.email)
