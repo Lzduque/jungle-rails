@@ -28,8 +28,10 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
     visit root_path
 
     # DEBUG / VERIFY
-    save_screenshot
-    expect(page).to have_css 'article.product'
+    byebug
+    page.all("article.product")[0].all("a")[0].click
+    expect(page).to have_css(".dl-horizontal")
+    save_screenshot "product_details.png"
   end
 
 end
